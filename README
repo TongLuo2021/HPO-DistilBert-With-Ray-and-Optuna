@@ -1,0 +1,20 @@
+#Hyperparameter Search with Transformers and Ray Tune, and Optuna
+* by Tong Luo
+
+Hyperparameters (HPs) can have significant impact on the final model parameters and model performance. [Study show](https://towardsdatascience.com/hyperparameter-optimization-for-optimum-transformer-models-b95a32b70949) that the most significant HPs are learning rate and training epochs, while other parameters also matters. Depends on the applications such as CV, NLP, the HPs can be significantly.
+
+----------
+###TLuo's works are:
+1. Ray and Optuna has [default HPs]((https://github.com/huggingface/transformers/blob/main/src/transformers/trainer_utils.py): 
+* learning_rate, 
+* num_train_epochs, 
+* seed, 
+* per_device_train_batch_size. 
+2. Besides that, I used customized HPO, by defining hp_space_ray function following the [source code](https://github.com/huggingface/transformers/blob/main/src/transformers/trainer_utils.py), and [sgugers's example](https://github.com/huggingface/transformers/blob/main/src/transformers/trainer_utils.py)
+3. Uses same frame work for Optuna.
+4. Use same frame work, we can tune Other hyper parameters are listed [here](https://simpletransformers.ai/docs/usage/#configuring-a-simple-transformers-model) .
+5. For small HPO setting (n_runtime = 3), the total time is similiar. Ray suppose to be faster because it can parallel moltiple tasks. More experiment need to be done here. 
+----------
+###[References]
+* [Hyperparameter Search with Transformers and Ray Tune](https://huggingface.co/blog/ray-tune)
+* [Hyperparameter optimization for optimun transformer models](https://towardsdatascience.com/hyperparameter-optimization-for-optimum-transformer-models-b95a32b70949)
